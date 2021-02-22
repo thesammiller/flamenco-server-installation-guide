@@ -1,17 +1,17 @@
-#Blender Cloud - Part A
+# Blender Cloud - Part A
 
 *“Welcome to open source, where you’re not the only one running your website.”* - Dr. Sybren    
 
-##Step 1: Install Ubuntu    
+## Step 1: Install Ubuntu    
 The first step is to install a clean Ubuntu machine. Virtual machines are easy ways to create fresh installations. The following steps were completed using VirtualBox and Vagrant. Depending on your needs, you will likely need to increase the memory for a virtual box (around 4GB should be good). 
 
-##Step 2: Install basic dependencies on Ubuntu 
+## Step 2: Install basic dependencies on Ubuntu 
 Reference: [docker/1_base/Dockerfile](https://developer.blender.org/diffusion/BC/browse/master/docker/1_base/Dockerfile)    
 `apt-get install -y tzdata openssl ca-certificates locales`    
 
 To install Blender-Cloud, we need a Python interpreter. The Blender-Cloud Docker builds from source.    
 
-##Step 3: Install Python 
+## Step 3: Install Python 
 Reference: [docker/2_buildpy/buildpy.docker](https://developer.blender.org/diffusion/BC/browse/master/docker/2_buildpy/buildpy.docker)    
 Blender-Cloud is built on the Pillar framework. Pillar is built on top of Flask. Flask is a framework for Python. So the first step is to install Python.
 
@@ -39,14 +39,14 @@ make -j8 install
 You may get an error message from Python that you are missing a zlib. This can be fixed by running the following command:    
 `sudo apt-get install zlib1g-dev`    
 
-##Step 4: Install Pip    
+## Step 4: Install Pip    
 We need to install `pip` in order to add more packages. It's important that we use the correct Python interpreter. You can use a virtual environment or, if you have a dedicated machine, you can just adjust your path to the Python interpreter we just installed.
 `export PATH=/opt/python/bin:$PATH'
 `python3 -m pip install -U pip`    
 
 If you run into SSL errors, you may need to rerun the `.configure` command in Step 3 with `--with-ssl`    
 
-##Step 5: Install Mod-WSGI 
+## Step 5: Install Mod-WSGI 
 Reference:[docker/2_buildpy/*](https://developer.blender.org/diffusion/BC/browse/master/docker/2_buildpy/)    
 Mod-WSGI is a simple internet server. It is part of the Apache system.    
 
@@ -61,7 +61,7 @@ cp /usr/lib/apache2/modules/mod_wsgi.so /opt/python/mod-wsgi
 python3 setup.py install
 ```
 
-##Step 5: Post Python/mod-wsgi install    
+## Step 6: Post Python/mod-wsgi install    
 **I don't fully understand this step**    
 `echo /opt/python/lib > /etc/ld.so.conf.d/python.conf`    
 

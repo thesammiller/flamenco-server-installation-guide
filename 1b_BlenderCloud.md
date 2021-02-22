@@ -1,6 +1,6 @@
-#Blender Cloud - Part B
+# Blender Cloud - Part B
 
-##Step 1: Install Git Repos    
+## Step 1: Install Git Repos    
 Reference: [Blender-Cloud readme](https://developer.blender.org/diffusion/BC/)    
 
 If you haven't already, copy the Git repositories.     
@@ -15,7 +15,7 @@ git clone git://git.blender.org/pillar-svnman.git
 git clone git://git.blender.org/blender-cloud.git
 ```
 
-##Step 2: Poetry     
+## Step 2: Poetry     
 Reference: [docker/3_buildwheels/build.sh](https://developer.blender.org/diffusion/BC/browse/master/docker/3_buildwheels/build.sh)    
 
 A Python interpreter must be set up with the appropriate dependencies. In order to avoid conflicts with other dependency versions, Python uses Poetry, which is a wrapper for a virtual environment. Virtual environments are ways to isolate Python distributions on a machine. While they can be very helpful, they can also be convoluted. If you run into trouble with a module that you expect to be installed, it’s likely a problem with virtual environments. It can sometimes be a good idea to uninstall then reinstall Poetry and/or virtualenv in order to get the appropriate compiler working.     
@@ -29,7 +29,7 @@ poetry install --no-dev
 The Python `cryptography` module has been updated and now requires a `rust` installation. As of this writing (2-22-21), this can be by-passed with the following environment variable:    
 `export CRYPTOGRAPHY_DONT_BUILD_RUST=1`    
 
-##Step 3: Wheelhouse Configuration 
+## Step 3: Wheelhouse Configuration 
 Reference: [docker/3_buildwheels/build.sh](https://developer.blender.org/diffusion/BC/browse/master/docker/3_buildwheels/build.sh)    
 
 Blender-Cloud uses two different “wheel” programs. Python3 or Pip3 wheel is a system that installs dependencies. “Wheelhouse” is a content management system. In this next step we use Pip’s “wheel” to install “wheelhouse."    
