@@ -12,7 +12,8 @@ To install Blender-Cloud, we need a Python interpreter. The Blender-Cloud Docker
 
 Step 3: Install Python (from `../blender-cloud/docker/2_buildpy/buildpy.docker`)
 
-```sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
+```
+sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get install -y build-essential apache2-dev checkinstall curl
 mkdir python
@@ -29,7 +30,8 @@ Cd ~/python/Python-3.6.6
     --enable-shared \
     --with-ensurepip=upgrade
 chown -R  $UID:$GID /opt/python
-make -j8 install```
+make -j8 install
+```
 
 If you run into Zlib error -> sudo apt-get install zlib1g-dev
 
