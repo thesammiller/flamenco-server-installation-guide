@@ -13,16 +13,16 @@ For those who still want to install a Flamenco Server, please consider a one-tim
 You can donate [here](https://www.blender.org/foundation/donation-payment/).
 
 Installing a Flamenco Server requires the coordination of a few different installations, including the Blender Cloud website and the Blender ID log-in system. While there are a number of technologies and frameworks involved, many are shared in common and fortunately most do not need direct interaction when installing. However, there are some applications which anyone attempting an installation should probably be at least familiar with using:
--Linux terminal - Bash, Ubuntu’s service/systemctl and developer tools like Git
--Docker - used for MongoDB, Redis and RabbitMQ
--Python - Pillar is built on Flask, Blender ID on Django and Poetry installs dependencies
--SQL - Blender ID uses MySQL, Blender Cloud and Flamenco use MongoDB
+-Linux terminal - Bash, Ubuntu’s service/systemctl and developer tools like Git    
+-Docker - used for MongoDB, Redis and RabbitMQ    
+-Python - Pillar is built on Flask, Blender ID on Django and Poetry installs dependencies    
+-SQL - Blender ID uses MySQL, Blender Cloud and Flamenco use MongoDB   
 
 To begin, create a fresh Ubuntu installation. This can be done directly on hardware or on a virtual machine. The following instructions have been pieced together from a variety of sources.
--[Pillar](https://pillarframework.org/development/install/)
--[Blender Cloud](https://developer.blender.org/diffusion/BC/)
--[Blender Cloud Docker Files](https://developer.blender.org/diffusion/BC/browse/master/docker/)
--[Blender ID](https://docs.blender.org/id/)
+-[Pillar](https://pillarframework.org/development/install/)    
+-[Blender Cloud](https://developer.blender.org/diffusion/BC/)    
+-[Blender Cloud Docker Files](https://developer.blender.org/diffusion/BC/browse/master/docker/)    
+-[Blender ID](https://docs.blender.org/id/)    
 
 Additional resources can be found in the developer docs for each repository. 
 

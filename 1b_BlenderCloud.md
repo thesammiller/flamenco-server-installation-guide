@@ -1,6 +1,6 @@
-#Blender Cloud Installation - Part B
+#Blender Cloud - Part B
 
-##Step 1: Install Git Repos
+##Step 1: Install Git Repos    
 Reference: [Blender-Cloud readme](https://developer.blender.org/diffusion/BC/)    
 
 If you haven't already, copy the Git repositories.     
