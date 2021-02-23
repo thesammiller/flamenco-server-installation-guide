@@ -75,30 +75,3 @@ When you are done configuring, you should be able to run the following command:
 
 **Warning from the Developers: Please do *not* use the devserver settings as-is. This will make your install insecure as everybody has access to that secret. You can use it as a basis, but change the secret so that it's totally new and random. The best way to do this is to create a new OAuth Application in the Blender ID admin and use the devserver settings as a template. Then delete the devserver OAuth Application.**    
 
-# Step 3: Configure Blender Cloud to work with Blender ID
-
-At this point, the Blender Cloud `config_local.py` and `.blender-id/bid_main/fixtures/blender_cloud_devserver.json` need to correlate `client ID`. 
-Blender Cloud is an OAuth Application and is also called a "client". Blender ID must be aware of which client applications shoudl have access to its information.
-
-If you have already run the above commands, you can adjust with MySQL commands.
-To check the `client ID` expected by Blender ID, run the following command in `MySQL`:        
-`SELECT * FROM bid_main_oauth2application;`
-
-**I'm not sure that I needed to run these commands **
-Some other commands to run:    
-```
-CREATE USER 'blender_id'@'%' IDENTIFIED BY 'jemoeder';
-GRANT ALL ON blender_id.* to 'blender_id'@'%';
-FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'blender_id'@'%';
-```
-If you run into a `misdirected URI` error, you may want to try some of the following adjustments:
-```
-UPDATE bid_main_oauth2application SET redirect_uris="http://cloud.local:5000/oauth/blender-id/authorized";
-UPDATE bid_api_webhook SET url="http://cloud.local:5000/api/webhooks/user-modified";
-UPDATE oauth2_provider_grant SET redirect_uri="http://cloud.local:5001/oauth/blender-id/authorized";
-```
-
-At this point, you should be able to log-in to Blender Cloud with your email as the Blender ID.
-
-
