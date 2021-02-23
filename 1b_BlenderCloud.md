@@ -34,10 +34,10 @@ Reference: [docker/3_buildwheels/build.sh](https://developer.blender.org/diffusi
 
 Blender-Cloud uses two different “wheel” programs. Python3 or Pip3 wheel is a system that installs dependencies. “Wheelhouse” is a content management system. In this next step we use Pip’s “wheel” to install “wheelhouse."    
 
-Poetry expects `setup.py` files and will not work without them. To get around this, we need to create a `requirements.txt`. To do this, run the following command:
+Poetry expects `setup.py` files and will not work without them. To get around this, we need to create a `requirements.txt`. To do this, run the following command:    
 `poetry run pip3 freeze | grep -v '\(pillar\)\|\(^-[ef] \)' > requirements.txt`
 
-When you've created a requirements file, you can run:
+When you've created a requirements file, you can run:    
 `pip3 wheel --wheel-dir=./data/wheelhouse -r requirements.txt`
 
 After that, we can set up some environment variables.

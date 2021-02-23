@@ -13,7 +13,7 @@ You should enter your local Blender Cloud URL in the form:
 
 You will be asked to login. When you do so, you'll get an error. 
 
-Flamenco Managers must be authorized by the Flamenco Server. The Flamenco Server is currently authorized through Blender Cloud by Blender ID.    
+Flamenco Managers must be authorized by the Flamenco Server. The Flamenco Server is currently authorized through Blender Cloud by Blender ID. The next step in the installation process is setting up the Blender ID server.    
 
 ## Step 1: Git and VirtualEnv
 References: [Blender ID Docker](https://developer.blender.org/diffusion/BID/browse/master/docker/)
@@ -75,7 +75,7 @@ When you are done configuring, you should be able to run the following command:
 
 **Warning from the Developers: Please do *not* use the devserver settings as-is. This will make your install insecure as everybody has access to that secret. You can use it as a basis, but change the secret so that it's totally new and random. The best way to do this is to create a new OAuth Application in the Blender ID admin and use the devserver settings as a template. Then delete the devserver OAuth Application.**    
 
-# Step 3: Coordinate Config_Local and .blender-id/bid_main/fixtures/blender_cloud_devserver.json
+# Step 3: Configure Blender Cloud to work with Blender ID
 
 At this point, the Blender Cloud `config_local.py` and `.blender-id/bid_main/fixtures/blender_cloud_devserver.json` need to correlate `client ID`. 
 Blender Cloud is an OAuth Application and is also called a "client". Blender ID must be aware of which client applications shoudl have access to its information.

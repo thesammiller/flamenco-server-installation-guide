@@ -1,7 +1,7 @@
 # Blender Cloud - Part C
 
 ## Step 1: Apache Dependencies
-**I am not an expert on Apache so I do not fully understand this step**
+**I am not an expert on Apache so I do not fully understand this step**    
 We need to make sure that Apache is properly configured. This will interact with the `mod-wsgi` installation from Part B.    
 
 `sudo apt-get install -y git apache2 libapache2-mod-xsendfile libjpeg8 libtiff5 ffmpeg rsyslog logrotate curl`    
@@ -62,9 +62,9 @@ Make sure that you have the virtualenvwrapper installed.
 sudo apt-get install virtualenvwrapper
 ```
 
-The installation files are missing a `requirements.txt` for Pillar. There may be some issues with dependencies. Since the project is a few years old, it's important to make sure that you have the correct version of the dependencies. Below are a few of them along with their version. You can install by using the command:
+The installation files are missing a `requirements.txt` for Pillar. There may be some issues with dependencies. Since the project is a few years old, it's important to make sure that you have the correct version of the dependencies. Below are a few of them along with their version. You can install by using the command:    
 `pip install module==####`    
-...where `module` is the module name and `####` is the version number.
+...where `module` is the module name and `####` is the version number.    
 
 For a list of modules from the development environment, please see the end of this file.    
 
@@ -73,7 +73,7 @@ There may also be an error for a missing module `email_validator`. You should be
 
 
 
-Developer Pillar Module Versions       
+### Developer Pillar Module Versions       
 ```
 algoliasearch            1.20.0   
 amqp                     2.5.0    
