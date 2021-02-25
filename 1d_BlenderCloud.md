@@ -7,14 +7,17 @@ In order to run Pillar, we need to make sure that we have some services availabl
 Follow the instructions here:    
 [Install Docker](https://docs.docker.com/engine/install/ubuntu/)   
 [Post Install](https://docs.docker.com/engine/install/linux-postinstall/)    
-
+*Note: Make sure that you add your user to the `docker` group.*
 
 ## Step 2: Run Docker Images
+
+Create a directory for your data storage and change the ownership to your user:
 ```
 sudo mkdir -p /data/storage
 sudo chown you:yourgroup /data/storage
 ```
 
+Run the following `docker` containers, which should download automatically if they are not already on your machine:
 ```
 docker run -d -v /data/db:/data/db -p 27017:27017 --name mongo mongo
 docker run -d -p 6379:6379 --name redis redis
@@ -41,9 +44,12 @@ openssl ec -in es256-private.pem -pubout -out es256-public.pem
 ```
 At the end of `config_local`, set the location of these keys to these values:
 ```
-FLAMENCO_JWT_PRIVATE_KEY_PATH
-FLAMENCO_JWT_PUBLIC_KEYS_PATH
+FLAMENCO_JWT_PRIVATE_KEY_PATH='/location/to/es256-private.pem'
+FLAMENCO_JWT_PUBLIC_KEYS_PATH='/location/to/es256-public.pem'
 ```
+
+In `runserver.py`, on the line `app.run('::0', 5001, debug=True)` change `5001` to `5000`.
+
 
 Run the initial setup, which will create the database. *Note: MongoDB Docker must be running.*    
 `poetry run ./manage.py setup setup_db <email>`

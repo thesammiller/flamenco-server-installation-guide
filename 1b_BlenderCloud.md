@@ -26,8 +26,15 @@ cd blender-cloud
 poetry install --no-dev
 ```
 
-The Python `cryptography` module has been updated and now requires a `rust` installation. As of this writing (2-22-21), this can be by-passed with the following environment variable:    
+Poetry may fail due to the `cryptography` module. It may require a `rust` installation. As of this writing (Feb-22-21), this can be by-passed with the following environment variable:    
 `export CRYPTOGRAPHY_DONT_BUILD_RUST=1`    
+
+To be able to install `cryptography` for Poetry, we need to run the following:
+`sudo apt-get install build-essential libssl-dev libffi-dev python3-dev cargo`
+
+After this, in the Pillar directory, run: 
+`poetry run pip install -e .`
+
 
 ## Step 3: Wheelhouse Configuration 
 Reference: [docker/3_buildwheels/build.sh](https://developer.blender.org/diffusion/BC/browse/master/docker/3_buildwheels/build.sh)    
@@ -38,7 +45,7 @@ Poetry expects `setup.py` files and will not work without them. To get around th
 `poetry run pip3 freeze | grep -v '\(pillar\)\|\(^-[ef] \)' > requirements.txt`
 
 When you've created a requirements file, you can run:    
-`pip3 wheel --wheel-dir=./data/wheelhouse -r requirements.txt`
+`pip3 wheel --wheel-dir=/data/wheelhouse -r requirements.txt`
 
 After that, we can set up some environment variables.
 ```
@@ -47,3 +54,5 @@ export PIP_WHEEL_DIR=/data/wheelhouse
 export PIP_FIND_LINKS=/data/wheelhouse
 mkdir -p $WHEELHOUSE
 ```
+
+When you have completed this step, you are ready to move on to running the necessary backend programs.

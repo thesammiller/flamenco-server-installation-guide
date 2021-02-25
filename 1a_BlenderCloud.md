@@ -14,19 +14,21 @@ To install Blender-Cloud, we need a Python interpreter. The Blender-Cloud Docker
 ## Step 3: Install Python 
 Reference: [docker/2_buildpy/buildpy.docker](https://developer.blender.org/diffusion/BC/browse/master/docker/2_buildpy/buildpy.docker)    
 Blender-Cloud is built on the Pillar framework. Pillar is built on top of Flask. Flask is a framework for Python. So the first step is to install Python.
+*Note: Installing `zlib` and `bz2` may not be neccessary, but they may avoid errors.*
 
 ```
 sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
 sudo apt-get update
-sudo apt-get install -y build-essential apache2-dev checkinstall curl
+sudo apt-get install -y build-essential apache2-dev checkinstall libbz2-dev zlib1g-dev libsqlite3-dev
 mkdir python
+cd python
 curl -O https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tar.xz
 tar xf Python-3.6.6.tar.xz
 rm -v Python-3.6.6.tar.xz
 mkdir /opt/python
 export PATH="/opt/python/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-cp python /opt/python
-Cd ~/python/Python-3.6.6
+cp -r Python-3.6.6 /opt/python
+cd /opt/python/Python-3.6.6
 ./configure \
     --prefix=/opt/python \
     --enable-ipv6 \
@@ -35,9 +37,6 @@ Cd ~/python/Python-3.6.6
 chown -R  $UID:$GID /opt/python
 make -j8 install
 ```
-
-You may get an error message from Python that you are missing a zlib. This can be fixed by running the following command:    
-`sudo apt-get install zlib1g-dev`    
 
 ## Step 4: Install Pip    
 We need to install `pip` in order to add more packages. It's important that we use the correct Python interpreter. You can use a virtual environment or, if you have a dedicated machine, you can just adjust your path to the Python interpreter we just installed.

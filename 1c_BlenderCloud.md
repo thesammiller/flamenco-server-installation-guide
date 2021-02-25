@@ -25,7 +25,7 @@ sudo cp docker/4_run/apache/000-default.conf /etc/apache2/000-default.conf
 sudo cp docker/4_run/apache/logrotate.conf /etc/logrotate.d/apache2
 sudo cp docker/4_run/*.sh /
 ```
-`service cron start`a     
+`service cron start`    
 
 
 ## Step 2: Gulp
