@@ -1,7 +1,7 @@
 # Blender Cloud - Part C
 
 ## Step 1: Apache Dependencies
-**I am not an expert on Apache so I do not fully understand this step**    
+
 We need to make sure that Apache is properly configured. This will interact with the `mod-wsgi` installation from Part B.    
 
 `sudo apt-get install -y git apache2 libapache2-mod-xsendfile libjpeg8 libtiff5 ffmpeg rsyslog logrotate curl`    
@@ -43,16 +43,12 @@ sudo apt -y install nodejs make gcc g++
 ```
 First, `gulp` in the `blender-cloud` directiory:    
 ```
-cd /data/git/blender-cloud
 ./gulp all
-npm install
 ```
 
-Next, `gulp` in the `pillar` directory:    
+Next, `gulp` in the `pillar`, `flamenco` and `pillar-svnman` directories:    
 ```
-cd /data/git/pillar
 ./gulp
-npm install
 ```
 
 

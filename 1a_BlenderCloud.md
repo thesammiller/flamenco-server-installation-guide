@@ -66,7 +66,7 @@ python3 setup.py install
 
 If you run into errors here, you can also create the file using `sudo vim /etc/ld.so.conf.d/python.conf`    
 
-**I don't fully understand this step**    
+Create a symbolic link to your binary as Python:    
 ```
 cd /opt/python/bin
 sudo ln -s python3 python

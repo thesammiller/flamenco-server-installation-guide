@@ -66,7 +66,13 @@ To test the server:
 
 At this point you should get a welcome redirection.
 
-You can also install `py.test`.    
-`pip3 install pytest`    
-`pip3 install pytest-cov`    
-Run `py.test` in the `blender-cloud` directory.    
+To confirm the website is available:
+`curl cloud.local:5000/welcome`
+
+You can also install `py.test`. In the `blender-cloud` directory, run:    
+```
+poetry run pip install pytest    
+poetry run pip install pytest-cov   
+poetry run py.test
+```
+*Note: Some tests will fail, but that should be okay at this point.*
