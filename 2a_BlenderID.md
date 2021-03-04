@@ -2,7 +2,7 @@
 
 ## Step 0: Install Flamenco Manager
 
-At this point, you should have a running Blender Cloud. This is not necessary, but it may be helpful to run Flamenco Manager and understand how the pieces are coordinated. [Download](https://www.flamenco.io/download/) the Flamenco Manager (and the Worker while you're there). If these terms are confusing, take a look at the official [terminology](https://www.flamenco.io/docs/user_manual/terminology/).    
+At this point, you should have a running Blender Cloud. The following step is not necessary, but it may be helpful to run Flamenco Manager and understand how the pieces are coordinated. [Download](https://www.flamenco.io/download/) the Flamenco Manager (and the Worker while you're there). If these terms are confusing, take a look at the official [terminology](https://www.flamenco.io/docs/user_manual/terminology/).    
 
 Unzip the files and from the `flamenco-manager` directory, run `./flamenco-manager -setup`    
 
@@ -71,7 +71,10 @@ When you are done configuring, you should be able to run the following command:
 - Run `./manage.py collectmedia` to collect media from fixtures and place into the media directory.
 - Add to /etc/hosts  127.0.0.1 id.local
 
-*Note: You must confirm your email address. If you do not receive an email, you can do this through MySQL.*
+*Note: You must confirm your email address. If you do not receive an email, you can do this through MySQL.*    
+After logging in to MySQL, run the following command to confirm your email:    
+`UPDATE bid_main_user SET confirmed_email_at="021-02-21 16:31:43.343342";`    
+
 
 **Warning from the Developers: Please do *not* use the devserver settings as-is. This will make your install insecure as everybody has access to that secret. You can use it as a basis, but change the secret so that it's totally new and random. The best way to do this is to create a new OAuth Application in the Blender ID admin and use the devserver settings as a template. Then delete the devserver OAuth Application.**    
 

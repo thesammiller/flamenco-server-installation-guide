@@ -61,13 +61,14 @@ When the output is finished, copy the value of `<project_id>` and assign it as v
 You can now run the server. From the `blender-cloud` directory, issue the command:    
 `poetry run ./manage.py runserver`
 
-To test the server:
+To test the server:    
 `curl cloud.local:5000`
 
 At this point you should get a welcome redirection.
 
-To confirm the website is available:
+To confirm the website is available:    
 `curl cloud.local:5000/welcome`
+*Note: If you get template issues, make sure you ran `gulp` in all relevant directories.*
 
 You can also install `py.test`. In the `blender-cloud` directory, run:    
 ```
