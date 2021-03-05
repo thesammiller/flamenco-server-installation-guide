@@ -32,7 +32,7 @@ First, clone the repository:
 
 - Run `git submodule init` and `git submodule update`    
 
-# Step 2: Install MySQL
+## Step 2: Install MySQL
 You must install `MySQL`:    
 `sudo apt-get install mysql-server mysql-client libmysqlclient-dev`
 
@@ -44,7 +44,7 @@ There might be a stall on installing `keyring`. To get around that, set the foll
   [change your mysql_config](https://github.com/PyMySQL/mysqlclient-python#note-about-bug-of-mysql-connectorc-on-macos)).
 
 
-# Step 3: Configure `MySQL`:
+## Step 3: Configure `MySQL`:
 `mysql_secure_installation`
 Set the password for `root` to `root`.
 When you are done configuring, you should be able to run the following command:    
@@ -64,7 +64,7 @@ cases.*
 - Create the database with `mysqladmin create blender_id --default-character-set=utf8`.
 
 
-# Step 5: Installing Blender ID
+## Step 5: Installing Blender ID
 
 *Note: The following python commands should be run with a `poetry run` prefix. e.g. `poetry run ./manage.py migrate`*
 
@@ -78,7 +78,7 @@ cases.*
 - In production, set up a cron job that calls the `flush_webhooks --flush -v 0` management command
   regularly.
 
-# Step 6: Creating a User
+## Step 6: Creating a User
 
 - Run `./manage.py createsuperuser` to create super user
   * Enter your email address
@@ -107,7 +107,7 @@ Instead of `./manage.py createsuperuser`, you can also create a user on Blender 
 *Note: You must confirm your email address. If you closed the terminal for Blender ID server, you can do this through MySQL. (see command above)*
 *Note: If you do not create a super user with `./manage.py createsuperuser` you can make a user super by running `poetry run ./manage.py makesuperuser <email>`
 
-# Step 7: Finishing Installation
+## Step 7: Finishing Installation
 
 Once you have created an account, you can continue with the rest of the management setup:
    - `./manage.py loaddata blender_cloud_devserver`
