@@ -12,6 +12,9 @@ Client Secret has to correspond in three places:
 As well as in the Blender ID OAuth Application `client secret` section.
 
 
+Edit `/data/git/flamenco/flamenco/templates/flamenco/managers/linking/choose_manager.html` to include:
+`<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />`
+
 You need to go into Blender Cloud and make sure your user is authorized to connect Flamenco:
 - Log in to Blender Cloud
 - Create a user
@@ -21,10 +24,6 @@ You need to go into Blender Cloud and make sure your user is authorized to conne
 - Create an OAuth Token, giving the token a name that you want and making sure that it lasts a long time (i.e. set date `2999-01-01`)
 - Go into the User settings and give your user badges like `cloud-subscriber` so they have access.
 - Go to `id.local:8000/admin`
-
-
-Edit `/data/git/flamenco/flamenco/templates/flamenco/managers/linking/choose_manager.html` to include:    
-`<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />`
 
 
 ## Step 2: Complete Linking Flamenco Manager

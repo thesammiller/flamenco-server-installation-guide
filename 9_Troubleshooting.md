@@ -45,9 +45,7 @@ For troubleshooting, it can be helpful to inspect the MySQL DB for Blender ID. H
 ```
 use blender_id;    
 select * from bid_main_user;    
-UPDATE bid_main_user SET is_superuser=1;    
-UPDATE bid_main_user SET is_staff=1;    
-UPDATE bid_main_user SET confirmed_email_at=2021-01-01 23:30:00.699372;    
+UPDATE bid_main_user SET confirmed_email_at=2022-01-01 23:30:00.699372;    
 ```
 *Note: a user cannot be `is_superuser` without being `is_staff`*    
 
