@@ -33,20 +33,20 @@ Make sure that you have the right name for the Project ID. You can double check 
 **MySQL Commands**   
 
 For troubleshooting, it can be helpful to inspect the MySQL DB for Blender ID. Here are some useful commands:    
-'''
+```
 use blender_id;    
 select * from bid_main_user;    
 UPDATE bid_main_user SET is_superuser=1;    
 UPDATE bid_main_user SET is_staff=1;    
 UPDATE bid_main_user SET confirmed_email_at=2021-01-01 23:30:00.699372;    
-'''
+```
 *Note: a user cannot be `is_superuser` without being `is_staff`*    
 
 If you need to remove MySQL, you can do that with:    
-'''
+```
 apt-get remove -y mysql-*    
 apt-get purge -y mysql-*    
-'''
+```
 
 You can update the root password:       
 `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new-password';`    
