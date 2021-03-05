@@ -16,12 +16,11 @@ You will be asked to login. When you do so, you'll get an error.
 Flamenco Managers must be authorized by the Flamenco Server. The Flamenco Server is currently authorized through Blender Cloud by Blender ID. The next step in the installation process is setting up the Blender ID server.    
 
 ## Step 1: Git and VirtualEnv
-References: [Blender ID Docker](https://developer.blender.org/diffusion/BID/browse/master/docker/)
-*Note: Most of these commands are from the Blender ID installation notes. However, there are further details.*
+References: [Blender ID Docker](https://developer.blender.org/diffusion/BID/browse/master/docker/)    
+[Blender ID Developer Docs](https://git.blender.org/gitweb/gitweb.cgi/blender-id.git/blob/HEAD:/docs/docs/development_setup.md)    
 
-`git clone git://git.blender.org/blender-id.git`
-
-*Note: I am not sure if all of the following adjustments are needed, I am still testing.*    
+First, clone the repository:   
+`git clone git://git.blender.org/blender-id.git`     
 
 - Copy `blenderid/__settings.py` to `blenderid/settings.py` and adjust for your needs.    
  * Set BLENDER_ID_ADDON_CLIENT_ID to the ID in config_local.py for the Cloud    
@@ -45,7 +44,7 @@ There might be a stall on installing `keyring`. To get around that, set the foll
   [change your mysql_config](https://github.com/PyMySQL/mysqlclient-python#note-about-bug-of-mysql-connectorc-on-macos)).
 
 
-Configure `MySQL`:
+# Step 3: Configure `MySQL`:
 `mysql_secure_installation`
 Set the password for `root` to `root`.
 When you are done configuring, you should be able to run the following command:    
@@ -53,7 +52,7 @@ When you are done configuring, you should be able to run the following command:
 
 *Note: If you cannot run the previous command with the password `root`, you will get an error when trying to run Blender ID if you do not change the password in the `DATABASES` dictionary in `settings.py`.*
 
-# Step 3: Coordinate settings between Blender Cloud and BlenderID:
+# Step 4: Coordinate settings between Blender Cloud and BlenderID:
 
 *Note: The following assumes you are install Blender Cloud and Blender ID on the same computer. This will be most use \
 cases.*
@@ -63,6 +62,9 @@ cases.*
   *  `bid_main/fixtures/blender_cloud_devserver.json` -> fields[client_id]
 - From inside the `blender-id` directory, run `poetry install` to install the necessary dependencies
 - Create the database with `mysqladmin create blender_id --default-character-set=utf8`.
+
+
+# Step 5: Installing Blender ID
 
 *Note: The following python commands should be run with a `poetry run` prefix. e.g. `poetry run ./manage.py migrate`*
 
@@ -75,6 +77,9 @@ cases.*
   management command regularly.
 - In production, set up a cron job that calls the `flush_webhooks --flush -v 0` management command
   regularly.
+
+# Step 6: Creating a User
+
 - Run `./manage.py createsuperuser` to create super user
   * Enter your email address
   * Enter your password
@@ -100,7 +105,9 @@ Instead of `./manage.py createsuperuser`, you can also create a user on Blender 
 - Enter a password and click submit.
 
 *Note: You must confirm your email address. If you closed the terminal for Blender ID server, you can do this through MySQL. (see command above)*
-*Note: If you do not create a super user with `./manage.py createsuperuser` you will have to set the appropriate flags in MySQL*
+*Note: If you do not create a super user with `./manage.py createsuperuser` you can make a user super by running `poetry run ./manage.py makesuperuser <email>`
+
+# Step 7: Finishing Installation
 
 Once you have created an account, you can continue with the rest of the management setup:
    - `./manage.py loaddata blender_cloud_devserver`

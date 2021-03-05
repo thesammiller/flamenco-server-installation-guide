@@ -1,3 +1,5 @@
+# Troubleshooting Common Problems
+
 **What should I do if the Python interpreter can’t find Pillar?**
 
 While you have your blender cloud virtualenv activated, do a pip install -e . from the pillar directory. That should ensure that Python finds it. You can also run poetry run pip install -e .    
@@ -29,8 +31,15 @@ Make sure that you have confirmed your email. See some of the MySQL commands bel
 **What should I do if I have a “misdirected URL” error in Blender ID?**    
 
 Make sure that you have the right name for the Project ID. You can double check this in config_local.py and the MySQL database.    
+Check the following:    
+```
+UPDATE bid_main_oauth2application SET redirect_uris="http://cloud.local:5000/oauth/blender-id/authorized";
+UPDATE bid_api_webhook SET url="http://cloud.local:5000/api/webhooks/user-modified";
+UPDATE oauth2_provider_grant SET redirect_uri="http://cloud.local:5001/oauth/blender-id/authorized";
+```
 
-**MySQL Commands**   
+
+# MySQL Commands    
 
 For troubleshooting, it can be helpful to inspect the MySQL DB for Blender ID. Here are some useful commands:    
 ```
