@@ -7,9 +7,9 @@ At this point, the Blender Cloud `config_local.py` and `.blender-id/bid_main/fix
 Blender Cloud is an OAuth Application and is also called a "client". Blender ID must be aware of which client applications should have access to its information.     
 
 Client Secret has to correspond in three places:    
-`/data/git/blender-id/blenderid/settings.py --> SECRET_KEY`    
-`/data/git/blender-id/bid_main/fixtures/blender_cloud_devserver.json --> client_secret`    
-As well as in the Blender ID OAuth Application `client secret` section.    
+- `/data/git/blender-id/blenderid/settings.py` --> `SECRET_KEY`    
+- `/data/git/blender-id/bid_main/fixtures/blender_cloud_devserver.json` --> `client_secret`    
+- `http://id.local:8000/admin/` --> OAuth Application `client secret` section.    
 
 
 Edit `/data/git/flamenco/flamenco/templates/flamenco/managers/linking/choose_manager.html` to include:    
