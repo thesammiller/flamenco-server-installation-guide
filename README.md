@@ -4,7 +4,7 @@ This documentation attempts to provide full, step-by-step details for installing
 
 *“Setting up everything from scratch is hard... Even if you want to go 100% self-hosted, I would recommend getting a bit more experience with Flamenco using the Blender Cloud server first.”* - Dr. Sybren
 
-For those who still want to install a Flamenco Server, please consider a one-time donation to Blender. Consider it a retainer for technical support. You can donate [here](https://www.blender.org/foundation/donation-payment/).
+For those who still want to install a Flamenco Server, please consider a one-time donation to Blender. You can donate [here](https://www.blender.org/foundation/donation-payment/).
 
 Installing a Flamenco Server requires the coordination of a few different installations, including the Blender Cloud website and the Blender ID log-in system. The process can be compliated. There are some applications which this document assumes familiarity with:
 - Linux terminal - Bash, Ubuntu’s service/systemctl and developer tools like Git    
