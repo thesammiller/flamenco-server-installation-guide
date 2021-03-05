@@ -9,11 +9,7 @@ Blender Cloud is an OAuth Application and is also called a "client". Blender ID 
 Client Secret has to correspond in three places:    
 - `/data/git/blender-id/blenderid/settings.py` --> `SECRET_KEY`    
 - `/data/git/blender-id/bid_main/fixtures/blender_cloud_devserver.json` --> `client_secret`    
-- `http://id.local:8000/admin/` --> OAuth Application `client secret` section.    
-
-
-Edit `/data/git/flamenco/flamenco/templates/flamenco/managers/linking/choose_manager.html` to include:    
-`<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />`
+- `http://id.local:8000/admin/` --> OAuth Application `client secret`  
 
 You need to go into Blender Cloud and make sure your user is authorized to connect Flamenco:
 - Log in to Blender Cloud
