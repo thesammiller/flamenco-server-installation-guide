@@ -49,6 +49,7 @@ FLAMENCO_JWT_TOKEN_EXPIRY = datetime.timedelta(hours=4)
 FLAMENCO_JWT_PRIVATE_KEY_PATH='/location/to/es256-private.pem'
 FLAMENCO_JWT_PUBLIC_KEYS_PATH='/location/to/es256-public.pem'
 ```
+*Note: You may want to copy-paste the above. Note the singular/plural distinction in `PRIVATE_KEY` and `PUBLIC_KEYS`*
 
 In `runserver.py`, on the line `app.run('::0', 5001, debug=True)` change `5001` to `5000`.
 

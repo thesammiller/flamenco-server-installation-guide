@@ -18,7 +18,7 @@ You need to go into Blender Cloud and make sure your user is authorized to conne
 - Refresh your Blender Cloud
 - Click `Whoosh`
 - Create an OAuth Token, giving the token a name that you want and making sure that it lasts a long time (i.e. set date `2999-01-01`)
-- Change "Redirect URI" from `cloud.local:5001` to `cloud.local:5000`
+- Change "Redirect URI" from `...cloud.local:5001...` to `...cloud.local:5000...`
 - Go into the User settings and give your user badges like `cloud-subscriber` so they have access.
 - Go to `id.local:8000/admin`
 

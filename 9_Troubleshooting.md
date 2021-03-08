@@ -38,6 +38,10 @@ UPDATE bid_api_webhook SET url="http://cloud.local:5000/api/webhooks/user-modifi
 UPDATE oauth2_provider_grant SET redirect_uri="http://cloud.local:5001/oauth/blender-id/authorized";
 ```
 
+***What should I do if I encounter a JWT error?***
+- Confirm that you have generated the appropriate keys.
+- Confirm that you have set the variables to the correct location.
+- Confirm that the variable names are correct (see Note in installation guide)
 
 # MySQL Commands    
 
