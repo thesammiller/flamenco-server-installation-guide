@@ -1,15 +1,15 @@
 # Troubleshooting Common Problems
 
-**What should I do if the Python interpreter can’t find Pillar?**
+***What should I do if the Python interpreter can’t find Pillar?***    
 
 While you have your blender cloud virtualenv activated, do a pip install -e . from the pillar directory. That should ensure that Python finds it. You can also run poetry run pip install -e .    
 Worst case scenario, you can convert the pyproject.toml to setup.py and try to install dependencies manually.    
 
-**How do I know if the Blender Cloud installation has been successful?**    
+***How do I know if the Blender Cloud installation has been successful?***    
 
 Visit cloud.local:5000/ - you should see a “welcome redirection” message. When you visit cloud.local:5000/welcome you should see the Blender Cloud homepage.    
 
-**What are some things I can try if things are not working?**    
+***What are some things I can try if things are not working?***    
 - Review the Docker files for Blender Cloud and Blender ID    
 - In config_local.py     
   * Make sure that all ports are changed to “5000” and not “5001”    
@@ -19,19 +19,19 @@ Visit cloud.local:5000/ - you should see a “welcome redirection” message. Wh
   * Config_local.py    
   * settings.py    
 
-**What should I do if Blender Cloud can’t find mongodb?**    
+***What should I do if Blender Cloud can’t find mongodb?***    
 
 Make sure that you’ve edited `/etc/hosts` to include the IP address for mongoDB.    
 You should also make sure that your Docker containers are running: `docker ps -a`    
 
-**What should I do if I have errors logging into the local Blender ID?**    
+***What should I do if I have errors logging into the local Blender ID?***    
 
 Make sure that you have confirmed your email. See some of the MySQL commands below.    
 
-**What should I do if I have a “misdirected URL” error in Blender ID?**    
+***What should I do if I have a “misdirected URL” error in Blender ID?***    
 
-Make sure that you have the right name for the Project ID. You can double check this in config_local.py and the MySQL database.    
-Check the following:    
+Make sure that you have the right name for the Project ID. You can double check this in `config_local.py` and the MySQL database.    
+Also check the following tables and possibly set to these values:    
 ```
 UPDATE bid_main_oauth2application SET redirect_uris="http://cloud.local:5000/oauth/blender-id/authorized";
 UPDATE bid_api_webhook SET url="http://cloud.local:5000/api/webhooks/user-modified";
@@ -44,15 +44,15 @@ UPDATE oauth2_provider_grant SET redirect_uri="http://cloud.local:5001/oauth/ble
 For troubleshooting, it can be helpful to inspect the MySQL DB for Blender ID. Here are some useful commands:    
 ```
 use blender_id;    
+show tables;
 select * from bid_main_user;    
 UPDATE bid_main_user SET confirmed_email_at=2022-01-01 23:30:00.699372;    
 ```
-*Note: a user cannot be `is_superuser` without being `is_staff`*    
 
 If you need to remove MySQL, you can do that with:    
 ```
-apt-get remove -y mysql-*    
-apt-get purge -y mysql-*    
+sudo apt-get remove -y mysql-*    
+sudo apt-get purge -y mysql-*    
 ```
 
 You can update the root password:       

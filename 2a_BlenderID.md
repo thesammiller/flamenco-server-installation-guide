@@ -4,6 +4,11 @@
 
 At this point, you should have a running Blender Cloud. The following step is not necessary, but it may be helpful to run Flamenco Manager and understand how the pieces are coordinated. [Download](https://www.flamenco.io/download/) the Flamenco Manager (and the Worker while you're there). If these terms are confusing, take a look at the official [terminology](https://www.flamenco.io/docs/user_manual/terminology/).    
 
+```
+wget https://www.flamenco.io/download/flamenco-manager-2.7-linux.tar.gz
+wget https://www.flamenco.io/download/flamenco-worker-2.4-linux.tar.gz
+```
+
 Unzip the files and from the `flamenco-manager` directory, run `./flamenco-manager -setup`    
 
 You should find a URL listed towards the end of the server output. Go to that address in a browser. You should see the linking page for Flamenco.
@@ -11,9 +16,7 @@ You should find a URL listed towards the end of the server output. Go to that ad
 You should enter your local Blender Cloud URL in the form:     
 `http://cloud.local:5000`
 
-You will be asked to login. When you do so, you'll get an error. 
-
-Flamenco Managers must be authorized by the Flamenco Server. The Flamenco Server is currently authorized through Blender Cloud by Blender ID. The next step in the installation process is setting up the Blender ID server.    
+You will be asked to login. When you do so, you'll get an error. This is because Blender ID has not been installed. Flamenco Managers must be authorized by the Flamenco Server. The Flamenco Server is currently authorized through Blender Cloud by Blender ID. The next step in the installation process is setting up the Blender ID server.    
 
 ## Step 1: Git and VirtualEnv
 References: [Blender ID Docker](https://developer.blender.org/diffusion/BID/browse/master/docker/)    
@@ -60,8 +63,9 @@ cases.*
 - Make sure that the Client ID matches in two locations:
   *  `config_local.py` -> blender-id['id'] 
   *  `bid_main/fixtures/blender_cloud_devserver.json` -> fields[client_id]
+
 - From inside the `blender-id` directory, run `poetry install` to install the necessary dependencies
-- Create the database with `mysqladmin create blender_id --default-character-set=utf8`.
+- Create the database with `sudo mysqladmin create blender_id --default-character-set=utf8`.
 
 
 ## Step 5: Installing Blender ID
@@ -69,27 +73,27 @@ cases.*
 *Note: The following python commands should be run with a `poetry run` prefix. e.g. `poetry run ./manage.py migrate`*
 
 - Run `./manage.py migrate` to migrate your database to the latest version.
-- Run `./manage.py createcachetable` to create the cache table in the database.
-- Run `mkdir media` to create the directory that'll hold uploaded files
   (such as images for the badges).
+  * If you run into an error, make sure that you can access MySQL with root.
+  * Use `sudo` to login to MySQL, then run: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';`    
 - In production, set up a cron job that calls the
   [cleartokens](https://django-oauth-toolkit.readthedocs.io/en/latest/management_commands.html#cleartokens)
   management command regularly.
 - In production, set up a cron job that calls the `flush_webhooks --flush -v 0` management command
   regularly.
+- Load default fixtures.
+   - list fixtures  `ls */fixtures/*`
+   - `./manage.py createcachetable`
+   - `./manage.py loaddata default_site`
+   - `./manage.py loaddata default_roles`
 
 ## Step 6: Creating a User
 
 - Run `./manage.py createsuperuser` to create super user
   * Enter your email address
   * Enter your password
-  * Run the following command in MySQL -> `UPDATE bid_main_user SET confirmed_email_at="021-02-21 16:31:43.343342";`
+  * Run the following command in MySQL -> `UPDATE bid_main_user SET confirmed_email_at="2021-02-21 16:31:43.343342";`
   * You must confirm your email before you can use the superuser.
-- Load any fixtures you want to use.
-   - list fixtures  `ls */fixtures/*`
-   - `./manage.py createcachetable`
-   - `./manage.py loaddata default_site`
-   - `./manage.py loaddata default_roles`
 
 Instead of `./manage.py createsuperuser`, you can also create a user on Blender Cloud:
 - Make sure that your Blender Cloud instance is running (which also requires the Dockers running).

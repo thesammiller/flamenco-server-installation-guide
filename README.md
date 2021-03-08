@@ -6,7 +6,7 @@ This documentation attempts to provide full, step-by-step details for installing
 
 For those who still want to install a Flamenco Server, please consider a one-time donation to Blender. You can donate [here](https://www.blender.org/foundation/donation-payment/).
 
-Installing a Flamenco Server requires the coordination of a few different installations, including the Blender Cloud website and the Blender ID log-in system. The process can be compliated. There are some applications which this document assumes familiarity with:
+Installing a Flamenco Server requires the coordination of a few different installations, including the Blender Cloud website and the Blender ID log-in system. The process can be complicated. There are some applications which this document assumes familiarity with:
 - Linux terminal - Bash, Ubuntu’s service/systemctl and developer tools like Git    
 - Docker - used for MongoDB, Redis and RabbitMQ    
 - Python - Pillar is built on Flask, Blender ID on Django and Poetry installs dependencies    

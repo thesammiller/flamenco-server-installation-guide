@@ -44,6 +44,8 @@ openssl ec -in es256-private.pem -pubout -out es256-public.pem
 ```
 At the end of `config_local`, set the location of these keys to these values:
 ```
+import datetime
+FLAMENCO_JWT_TOKEN_EXPIRY = datetime.timedelta(hours=4)
 FLAMENCO_JWT_PRIVATE_KEY_PATH='/location/to/es256-private.pem'
 FLAMENCO_JWT_PUBLIC_KEYS_PATH='/location/to/es256-public.pem'
 ```
@@ -54,7 +56,13 @@ In `runserver.py`, on the line `app.run('::0', 5001, debug=True)` change `5001` 
 Run the initial setup, which will create the database. *Note: MongoDB Docker must be running.*    
 `poetry run ./manage.py setup setup_db <email>`
 
-When the output is finished, copy the value of `<project_id>` and assign it as value for `MAIN_PROJECT_ID` in `config_local.py`.    
+The output will end with something like:
+```
+Created user 6046325c854cf1f6ddcd1324
+2021-03-08 14:19:08,816     INFO pillar.api.projects.utils Creating new project "Default Project" for user 6046325c854cf1f6ddcd1324
+2021-03-08 14:19:08,912     INFO pillar.api.projects.utils Created project <project_id> for user 6046325c854cf1f6ddcd1324
+```
+When the output is finished, copy the value of `<project_id>` and assign it as value for `MAIN_PROJECT_ID` in `config_local.py`. The `<project_id>` will be the MongoDB ID, an umpteen-digit hex number. 
 
 
 # Step 6: Run Blender-Cloud Server
