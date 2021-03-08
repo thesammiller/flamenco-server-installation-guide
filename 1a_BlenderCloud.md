@@ -1,7 +1,5 @@
 # Blender Cloud - Part A
 
-*“Welcome to open source, where you’re not the only one running your website.”* - Dr. Sybren    
-
 ## Step 1: Install Ubuntu    
 The first step is to install a clean Ubuntu machine. Virtual machines are easy ways to create fresh installations. The following steps were completed using VirtualBox and Vagrant. Depending on your needs, you will likely need to increase the memory for a virtual box (around 4GB should be good). 
 
