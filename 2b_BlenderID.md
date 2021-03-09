@@ -13,14 +13,15 @@ Client Secret has to correspond in three places:
 
 You need to go into Blender Cloud and make sure your user is authorized to connect Flamenco:
 - Log in to Blender Cloud
-- Create a user
+- Create a new user
 - Open the terminal and in the `blender-id` folder run `poetry run ./manage.py makesuperuser <youremail>`
-- Refresh your Blender Cloud
+- Go to `id.local:8000/admin/` and log in.
 - Click `Whoosh`
-- Create an OAuth Token, giving the token a name that you want and making sure that it lasts a long time (i.e. set date `2999-01-01`)
 - Change "Redirect URI" from `...cloud.local:5001...` to `...cloud.local:5000...`
-- Go into the User settings and give your user badges like `cloud-subscriber` so they have access.
-- Go to `id.local:8000/admin`
+- Make sure that your `client secret` is correct (see above).
+- Go into the User settings and give your user badges `cloud-subscriber` and `cloud-has-subscription` so they have access.
+- Go to Blender Cloud at `cloud.local:5000`
+- You should now be able to log in.
 
 
 ## Step 2: Complete Linking Flamenco Manager
