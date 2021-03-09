@@ -111,7 +111,13 @@ Instead of `./manage.py createsuperuser`, you can also create a user on Blender 
 
 ## Step 7: Finishing Installation
 
-Once you have created an account, you can continue with the rest of the management setup:
+At this point, the Blender Cloud `config_local.py` and `.blender-id/bid_main/fixtures/blender_cloud_devserver.json` need to correlate.
+- 'client_id' should match 'blender_id'['id']
+- 'client_secret' should match 'blender_id'['secret']
+Blender Cloud is an OAuth Application and is also called a "client". Blender ID must be aware of which client applications should have access to its information.
+* Note: If you miss this step, you can set these at `id.local:8000/admin/` in the OAuth Application settings.*
+
+WIth an account created, you can continue with the rest of the management setup:
    - `./manage.py loaddata blender_cloud_devserver`
    - `./manage.py loaddata blender_cloud_dev_webhook`
    - `./manage.py loaddata flatpages`
