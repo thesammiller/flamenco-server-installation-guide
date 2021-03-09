@@ -57,8 +57,7 @@ When you are done configuring, you should be able to run the following command:
 
 # Step 4: Coordinate settings between Blender Cloud and BlenderID:
 
-*Note: The following assumes you are install Blender Cloud and Blender ID on the same computer. This will be most use \
-cases.*
+You should install a virtual environment for your dependencies. This document will use `poetry` since it was also used in the Blender Cloud installation. You can also use something like `pipenv`. 
 
 - Make sure that the Client ID matches in two locations:
   *  `config_local.py` -> blender-id['id'] 
@@ -67,10 +66,9 @@ cases.*
 - From inside the `blender-id` directory, run `poetry install` to install the necessary dependencies
 - Create the database with `sudo mysqladmin create blender_id --default-character-set=utf8`.
 
-
 ## Step 5: Installing Blender ID
 
-*Note: The following python commands should be run with a `poetry run` prefix. e.g. `poetry run ./manage.py migrate`*
+*Note: The following python commands should be run with a virtual environment prefix. e.g. `poetry run ./manage.py migrate`*
 
 - Run `./manage.py migrate` to migrate your database to the latest version.
   (such as images for the badges).

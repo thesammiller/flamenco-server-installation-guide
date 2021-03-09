@@ -2,9 +2,7 @@
 
 This documentation attempts to provide full, step-by-step details for installing the components necessary to host your own Flamenco Server. There are many use-cases for self-hosting a Flamenco server. However, for most people, the services provided by Blender Cloud should be sufficient. As a bonus, subscriptions to Blender Cloud supports Blender. If you do not need a personal Flamenco server, please consider the more convenient solution and help the Blender Foundation in the process.
 
-*“Setting up everything from scratch is hard... Even if you want to go 100% self-hosted, I would recommend getting a bit more experience with Flamenco using the Blender Cloud server first.”* - Dr. Sybren
-
-For those who still want to install a Flamenco Server, please consider a one-time donation to Blender. You can donate [here](https://www.blender.org/foundation/donation-payment/).
+Setting up everything from scratch is hard. Even if you want to go 100% self-hosted, the Blender developers recommend getting a bit more experience with Flamenco using the Blender Cloud server first.
 
 Installing a Flamenco Server requires the coordination of a few different installations, including the Blender Cloud website and the Blender ID log-in system. The process can be complicated. There are some applications which this document assumes familiarity with:
 - Linux terminal - Bash, Ubuntu’s service/systemctl and developer tools like Git    
