@@ -10,7 +10,9 @@ Installing a Flamenco Server requires the coordination of a few different instal
 - Python - Pillar is built on Flask, Blender ID on Django and Poetry installs dependencies    
 - Databases - Blender ID uses MySQL, Blender Cloud uses MongoDB & Redis   
 
-The following instructions have been pieced together from a variety of sources.    
+When you're ready, start reading with the first file in the repository.
+
+Links to Official Sources:   
 - [Pillar](https://pillarframework.org/development/install/)    
 - [Blender Cloud](https://developer.blender.org/diffusion/BC/)    
 - [Blender Cloud Docker Files](https://developer.blender.org/diffusion/BC/browse/master/docker/)    
