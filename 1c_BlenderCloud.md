@@ -58,7 +58,7 @@ Make sure that you have the virtualenvwrapper installed.
 sudo apt-get install virtualenvwrapper
 ```
 
-The installation files are missing a `requirements.txt` for Pillar. There may be some issues with dependencies. Since the project is a few years old, it's important to make sure that you have the correct version of the dependencies. Below are a few of them along with their version. You can install by using the command:    
+The installation files are missing a `requirements.txt` for Pillar. There may be some issues with dependencies. Since the project is a few years old, it's important to make sure that you have the correct version of the dependencies. Check the appendix for developer dependency versions. You can install by using the command:    
 `pip install module==####`    
 ...where `module` is the module name and `####` is the version number.    
 
