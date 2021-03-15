@@ -43,6 +43,12 @@ UPDATE oauth2_provider_grant SET redirect_uri="http://cloud.local:5001/oauth/ble
 - Confirm that you have set the variables to the correct location.
 - Confirm that the variable names are correct (see Note in installation guide)
 
+***What should I try if I see a 404 'Not found' page?***
+- Make sure that you have run `./gulp all` in the Blender-Cloud directory.
+- You can also `gulp` in the sub-directories (like Pillar). 
+- Make sure that you're connecting to a separated domain name like `cloud.local` - some browsers handle cookies differently so using the IP address or `localhost` will result in failure    
+
+
 # MySQL Commands    
 
 For troubleshooting, it can be helpful to inspect the MySQL DB for Blender ID. Here are some useful commands:    
