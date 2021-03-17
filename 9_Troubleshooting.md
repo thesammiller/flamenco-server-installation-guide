@@ -3,7 +3,7 @@
 ***What should I do if the Python interpreter can’t find Pillar?***    
 
 While you have your blender cloud virtualenv activated, do a pip install -e . from the pillar directory. That should ensure that Python finds it. You can also run poetry run pip install -e .    
-Worst case scenario, you can convert the pyproject.toml to setup.py and try to install dependencies manually.    
+Worst case scenario, you can [convert](https://gist.github.com/adamghill/8a96311b5cf1790c72a0b825ffe4f6d2) the pyproject.toml to setup.py and try to install dependencies manually.    
 
 ***How do I know if the Blender Cloud installation has been successful?***    
 
